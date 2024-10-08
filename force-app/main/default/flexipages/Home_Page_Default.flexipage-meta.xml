@@ -3,8 +3,8 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>home:heroChart</componentName>
-                <identifier>home_heroChart</identifier>
+                <componentName>bearList</componentName>
+                <identifier>c_bearList</identifier>
             </componentInstance>
         </itemInstances>
         <mode>Replace</mode>
@@ -12,35 +12,11 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>home:eventContainer</componentName>
-                <identifier>home_eventContainer</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>home:recentRecordContainer</componentName>
-                <identifier>home_recentRecordContainer</identifier>
-            </componentInstance>
-        </itemInstances>
         <mode>Replace</mode>
         <name>bottomLeft</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>runtime_sales_activities:todayTaskContainer</componentName>
-                <identifier>runtime_sales_activities_todayTaskContainer</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>home:topDealsContainer</componentName>
-                <identifier>home_topDealsContainer</identifier>
-            </componentInstance>
-        </itemInstances>
         <mode>Replace</mode>
         <name>bottomRight</name>
         <type>Region</type>
@@ -48,8 +24,8 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>boatPicker</componentName>
-                <identifier>c_boatPicker</identifier>
+                <componentName>bearMap</componentName>
+                <identifier>c_bearMap</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <description>Test Flow</description>
+    <environments>Default</environments>
+    <interviewLabel>Account ID {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account ID</label>
+    <loops>
+        <name>Searching_for_Accounts</name>
+        <label>Searching for Accounts</label>
+        <locationX>486</locationX>
+        <locationY>514</locationY>
+        <collectionReference>Get_Accounts_Collection</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_Accounts_Collection</name>
+        <label>Get Accounts Collection</label>
+        <locationX>485</locationX>
+        <locationY>295</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Searching_for_Accounts</targetReference>
+        </connector>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>Account_Screen</name>
+        <label>Account Screen</label>
+        <locationX>857</locationX>
+        <locationY>386</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Lookup_to_Lead_Owner</name>
+            <extensionName>flowruntime:lookup</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>fieldApiName</name>
+                <value>
+                    <stringValue>CreatedById</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>objectApiName</name>
+                <value>
+                    <stringValue>Lead</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Label Name</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>391</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Get_Accounts_Collection</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+</Flow>

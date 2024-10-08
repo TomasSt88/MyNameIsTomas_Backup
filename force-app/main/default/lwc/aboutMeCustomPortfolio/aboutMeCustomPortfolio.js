@@ -1,0 +1,53 @@
+import { LightningElement, wire, track } from 'lwc';
+import { subscribe, MessageContext } from 'lightning/messageService';
+import FILTERSCHANGEMC from '@salesforce/messageChannel/FiltersChange__c';
+import getPortfolio from '@salesforce/apex/aboutMeCustomPortfolioController.getPortfolios';
+import getContentDocumentIdPortfolio from '@salesforce/apex/aboutMeCustomPortfolioController.getContentDocumentIdPortfolio';
+
+export default class AboutMeCustomPortfolio extends LightningElement {
+    @track portfolioData = { portfolio: null };
+    @track aboutMeImageData = { aboutMeImageURL: null };
+    @track isLoading = false;
+    subscription = null;
+    
+    @wire(MessageContext)
+    messageContext;
+    
+    connectedCallback() {
+        this.subscribeToMessageChannel();
+    }
+    
+    subscribeToMessageChannel() {
+        if (!this.subscription) {
+            this.subscription = subscribe(
+                this.messageContext,
+                FILTERSCHANGEMC,
+                (message) => this.handleMessage(message)
+                );
+            }
+        }
+    
+    handleMessage(message) {
+        if (message.type === 'reset') {
+            this.portfolioData = { portfolio: null };
+            this.aboutMeImageData = { aboutMeImageURL: null };
+        } else if (message.portfolioId) {
+            let portfolioIdStr = message.portfolioId.toString();
+    
+            Promise.all([
+                getPortfolio({ portfolioId: portfolioIdStr }),
+                getContentDocumentIdPortfolio({ portfolioId: portfolioIdStr })
+            ])
+            .then(([portfolioResult, contentDocumentIdResult]) => {
+                this.portfolioData.portfolio = portfolioResult[0];
+                this.aboutMeImageData.aboutMeImageURL = '/sfc/servlet.shepherd/version/download/' + contentDocumentIdResult;
+                this.isLoading = false; 
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                this.error = 'An error occurred. Please check the portfolio ID and try again.';
+                this.isLoading = false;
+            });
+        }
+    }
+}

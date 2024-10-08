@@ -1,0 +1,64 @@
+.outer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--dxp-g-neutral);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    margin: 10px;
+    padding-top: 10px;
+}
+  
+img {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+.text-container {
+  padding: 8px;
+  margin: 0 8px;
+}
+
+.text-container h4 {
+  text-align: center;
+  font-size: 18px;
+}
+
+.list {
+  font-size: 16px;
+  text-align: center;
+}
+
+ul.list li {
+  margin: 0.1em;
+  background: #595959;
+  border-radius: 9px;
+  color: #fff;
+  justify-content: space-between;
+  font-size: 0.7em;
+  padding: 4px 11px;
+  text-shadow: 0 0 3px #111C26;
+
+}
+
+h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+/* Responsive layout - makes the cards stack on top of each other */
+@media only screen and (min-width: 768px) {
+    .card-container {
+        display: flex;
+    }
+
+    .card {
+        width: 16%;
+    }
+}

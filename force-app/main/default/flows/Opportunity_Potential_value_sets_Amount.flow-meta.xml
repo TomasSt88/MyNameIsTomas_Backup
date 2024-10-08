@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <assignments>
+        <name>Set_Amount_Field_to_Potenital_Value</name>
+        <label>Set Amount Field to Potenital Value</label>
+        <locationX>499</locationX>
+        <locationY>369</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Amount</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Potential_Value__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>When an Opp is created, the potential value sets amount field.</description>
+    <environments>Default</environments>
+    <interviewLabel>Opportunity - Potential value sets Amount {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity - Potential value sets Amount</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>374</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Set_Amount_Field_to_Potenital_Value</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Potential_Value__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

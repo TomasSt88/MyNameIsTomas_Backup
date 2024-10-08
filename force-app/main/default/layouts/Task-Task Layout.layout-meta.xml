@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <emailDefault>false</emailDefault>
-    <headers>PersonalTagging</headers>
-    <headers>PublicTagging</headers>
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
@@ -28,6 +25,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Priority</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Assigned_Coordinator__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -101,25 +102,16 @@
         <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
-        <customLabel>false</customLabel>
-        <detailHeading>false</detailHeading>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
+        <label>Custom Links</label>
+        <layoutColumns/>
+        <layoutColumns/>
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
     <quickActionList>
-        <quickActionListItems>
-            <quickActionName>Task.UpdateStatus_0</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
-            <quickActionName>Task.EditDescription_0</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
-            <quickActionName>Task.Defer_0</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
-            <quickActionName>Task.UpdatePriority_0</quickActionName>
-        </quickActionListItems>
         <quickActionListItems>
             <quickActionName>FeedItem.TextPost</quickActionName>
         </quickActionListItems>
@@ -173,8 +165,13 @@
     </relatedLists>
     <relatedObjects>WhoId</relatedObjects>
     <relatedObjects>WhatId</relatedObjects>
-    <runAssignmentRulesDefault>false</runAssignmentRulesDefault>
-    <showEmailCheckbox>true</showEmailCheckbox>
-    <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
+    <showEmailCheckbox>false</showEmailCheckbox>
+    <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
+    <summaryLayout>
+        <masterLabel>00hWy000000FSZ2</masterLabel>
+        <sizeX>4</sizeX>
+        <sizeY>0</sizeY>
+        <summaryLayoutStyle>Default</summaryLayoutStyle>
+    </summaryLayout>
 </Layout>
