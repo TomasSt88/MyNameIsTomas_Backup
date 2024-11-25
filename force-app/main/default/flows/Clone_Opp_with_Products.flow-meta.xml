@@ -49,8 +49,15 @@
             <assignToReference>Loop_Opp_Products.TotalPrice</assignToReference>
             <operator>Assign</operator>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>newOppProds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Opp_Products</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
-            <targetReference>Create_Opp_Prod</targetReference>
+            <targetReference>Loop_Opp_Products</targetReference>
         </connector>
     </assignments>
     <description>Copy an opportunity, set it to Prospecting, and copy its opp products. Run from the Clone with Products button.</description>
@@ -68,6 +75,9 @@
         <nextValueConnector>
             <targetReference>Set_Current_Line_to_New_Opp</targetReference>
         </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Create_Opp_Prod</targetReference>
+        </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
         <name>BuilderType</name>
@@ -103,12 +113,9 @@
         <description>Create each opp product based on the originals</description>
         <name>Create_Opp_Prod</name>
         <label>Create Opp Prod</label>
-        <locationX>264</locationX>
-        <locationY>782</locationY>
-        <connector>
-            <targetReference>Loop_Opp_Products</targetReference>
-        </connector>
-        <inputReference>Loop_Opp_Products</inputReference>
+        <locationX>176</locationX>
+        <locationY>866</locationY>
+        <inputReference>newOppProds</inputReference>
     </recordCreates>
     <recordLookups>
         <description>Get values from the opp ID passed into the recordId input variable</description>
@@ -169,6 +176,14 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>newOppProds</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>OpportunityLineItem</objectType>
     </variables>
     <variables>
         <name>recordId</name>

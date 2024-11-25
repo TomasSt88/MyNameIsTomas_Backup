@@ -63,6 +63,14 @@
         <label>Uncheck Contacted</label>
         <locationX>50</locationX>
         <locationY>360</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Contacted_This_Quarter__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
         <inputAssignments>
             <field>Contacted_This_Quarter__c</field>
             <value>
