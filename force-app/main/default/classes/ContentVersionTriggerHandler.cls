@@ -1,8 +1,10 @@
 public class ContentVersionTriggerHandler {
     @future(callout=true)
 	public static void callGoogleDrive(String cvId){
-        String key = '876231244276-coen8jd41pqemvdjllqqul8uckghsj76.apps.googleusercontent.com';
-   		String secert = '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';
+        String key = '';
+        // 876231244276-coen8jd41pqemvdjllqqul8uckghsj76.apps.googleusercontent.com
+   		String secert = '';
+        // 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;
     	String redirect_uri = 'https://developers.google.com/oauthplayground';
         String accesstoken;
     	String refreshToken = '1//04-9Y8Yb3hihfCgYIARAAGAQSNwF-L9IrQuMoGnkIcCksr-79-KAMIGbuTpKsXc_bXQP2DDpnpXvDcqOJCDEMAKxNv27hnJBeVPQ';

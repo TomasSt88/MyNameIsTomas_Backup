@@ -1,7 +1,9 @@
 public class GoogleAuthService {
     
-    private static string key = '574098411219-8sol4a5m7kvgru4vjbsmi9n159cn3mjb.apps.googleusercontent.com';
-    private Static string secret = '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';
+    private static string key = '';
+    // '574098411219-8sol4a5m7kvgru4vjbsmi9n159cn3mjb.apps.googleusercontent.com'
+    private Static string secret = '';
+    // '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'
     private Static string redirect_url = 'https://mynameistomas-dev-ed.develop.my.salesforce.com/services/authcallback/GoogleVisionAPI_Auth';
     private static string authUrl='https://accounts.google.com/o/oauth2/auth';
     private static string scope='https://www.googleapis.com/auth/cloud-vision';
