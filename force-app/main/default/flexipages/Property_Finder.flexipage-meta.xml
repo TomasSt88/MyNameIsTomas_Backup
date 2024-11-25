@@ -19,8 +19,8 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>propertyListMap</componentName>
-                <identifier>c_propertyListMap</identifier>
+                <componentName>auraPropertyListMap</componentName>
+                <identifier>auraPropertyListMap</identifier>
             </componentInstance>
         </itemInstances>
         <name>center</name>

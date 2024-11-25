@@ -22,8 +22,9 @@ export default class ListContactsFromDevice extends LightningElement {
         };
 
         try {
-            this.deviceContacts =
-                await this.contactsService.getContacts(options);
+            this.deviceContacts = await this.contactsService.getContacts(
+                options
+            );
         } catch (error) {
             this.error = error;
         }

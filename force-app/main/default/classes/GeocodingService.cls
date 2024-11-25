@@ -33,7 +33,7 @@ public with sharing class GeocodingService {
                 request.setMethod('GET');
                 request.setHeader(
                     'http-referer',
-                    URL.getOrgDomainUrl().toExternalForm()
+                    URL.getSalesforceBaseUrl().toExternalForm()
                 );
                 HttpResponse response = http.send(request);
                 if (response.getStatusCode() == 200) {

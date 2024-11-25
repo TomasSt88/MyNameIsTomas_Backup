@@ -59,4 +59,5 @@ export default class Boats extends LightningElement {
             return `background-image:url('${this.boatPicture}')`;
         }
     }
+
 }

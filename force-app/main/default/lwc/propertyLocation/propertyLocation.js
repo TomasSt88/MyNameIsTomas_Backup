@@ -19,6 +19,7 @@ export default class PropertyLocation extends LightningElement {
     wiredProperty({ data, error }) {
         if (data) {
             this.property = data;
+            this.error = undefined;
             this.calculateDistance();
         } else if (error) {
             this.error = error;
@@ -41,11 +42,8 @@ export default class PropertyLocation extends LightningElement {
 
     async calculateLocationFromMobileDevice() {
         try {
-            this.location = await this.deviceLocationService.getCurrentPosition(
-                {
-                    enableHighAccuracy: true
-                }
-            );
+            this.location =
+                await this.deviceLocationService.getCurrentPosition();
             this.calculateDistance();
         } catch (error) {
             this.error = error;
@@ -55,7 +53,7 @@ export default class PropertyLocation extends LightningElement {
     calculateLocationFromBrowser() {
         navigator.geolocation.getCurrentPosition(
             (result) => {
-                this.location = result;
+                this.location = result.coords;
                 this.calculateDistance();
             },
             (error) => {
@@ -66,9 +64,9 @@ export default class PropertyLocation extends LightningElement {
 
     calculateDistance() {
         if (this.location && this.property) {
-            const latitude1 = this.location.coords.latitude;
+            const latitude1 = this.location.latitude;
             const latitude2 = getFieldValue(this.property, LATITUDE_FIELD);
-            const longitude1 = this.location.coords.longitude;
+            const longitude1 = this.location.longitude;
             const longitude2 = getFieldValue(this.property, LONGITUDE_FIELD);
 
             // Haversine formula
